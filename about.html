@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About · Crumb</title>
+    <meta name="description" content="The story of Crumb, a small Toronto bakery, with our opening hours and address." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/pages/about.js"></script>
+  </head>
+  <body>
+    <!-- include src/partials/header.html -->
+
+    <main id="main" class="container prose">
+      <h1>About Crumb</h1>
+      <p class="lead">A two-person bakery on a quiet corner, open since 2019.</p>
+      <p>
+        Crumb started with one oven and a sourdough starter called Bubbles. Today we bake bread, pastries and
+        cookies every morning, in batches small enough that everything is sold by the end of the day.
+      </p>
+      <p>
+        Ordering ahead means we bake what people actually want, and you never find the shelf empty.
+        Leftovers go to the community fridge down the street.
+      </p>
+
+      <h2 id="hours">Opening hours</h2>
+      <p>These are also the pickup hours for online orders.</p>
+      <!-- src/pages/about.js fills in the rows from HOURS in src/bakery.js. -->
+      <table class="hours-table" id="hours-table">
+        <caption class="visually-hidden">Opening hours</caption>
+        <tbody></tbody>
+      </table>
+
+      <h2>Find us</h2>
+      <p>88 Oven Lane, Toronto, ON<br />Two minutes from the streetcar stop. Bike parking out front.</p>
+      <p>
+        Email <a href="mailto:hello@crumb.example">hello@crumb.example</a> or call
+        <a href="tel:+14165550123">(416) 555-0123</a>.
+      </p>
+    </main>
+
+    <!-- include src/partials/footer.html -->
+  </body>
+</html>

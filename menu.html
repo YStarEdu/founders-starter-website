@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menu · Crumb</title>
+    <meta name="description" content="Bread, pastries and cookies from Crumb, with prices. Order online for pickup." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/pages/menu.js"></script>
+  </head>
+  <body>
+    <!-- include src/partials/header.html -->
+
+    <main id="main" class="container">
+      <h1>Menu</h1>
+      <p class="lead">Prices are in Canadian dollars. You pay when you pick up.</p>
+
+      <!-- src/pages/menu.js fills this in from the MENU list in src/bakery.js. -->
+      <div id="menu" class="menu"></div>
+      <noscript><p>Turn on JavaScript to see the menu.</p></noscript>
+
+      <p class="menu-cta"><a class="button" href="/order.html">Order for pickup</a></p>
+    </main>
+
+    <!-- include src/partials/footer.html -->
+  </body>
+</html>

@@ -1,0 +1,11 @@
+# Downloaded packages: anyone can get them again with npm install.
+node_modules/
+# The built site: Netlify builds its own copy.
+dist/
+# Your Supabase settings stay on your computer. .env.example is the shareable template.
+.env
+.env.*
+!.env.example
+# Files your computer makes on its own.
+.DS_Store
+Thumbs.db

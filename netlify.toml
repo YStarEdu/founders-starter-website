@@ -1,0 +1,14 @@
+# Netlify reads this file to know how to build your site from GitHub.
+[build]
+  command = "npm run build"   # makes the finished site...
+  publish = "dist"            # ...in this folder, which Netlify puts online
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# A few safe browser security settings for every page.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

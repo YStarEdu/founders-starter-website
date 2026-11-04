@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Order for pickup · Crumb</title>
+    <meta name="description" content="Order bread and pastries from Crumb and choose when to pick them up." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/pages/order.js"></script>
+  </head>
+  <body>
+    <!-- include src/partials/header.html -->
+
+    <main id="main" class="container">
+      <h1>Order for pickup</h1>
+      <p class="lead">Choose what you'd like and when you'll come by. You pay when you pick up.</p>
+
+      <!-- Shown when the form has problems. src/pages/order.js fills in the list. -->
+      <div class="error-summary" id="error-summary" tabindex="-1" hidden>
+        <h2>Please fix these and send again</h2>
+        <ul></ul>
+      </div>
+
+      <!-- novalidate: our own checks (src/validate.js) show the messages, so they look the same in every browser. -->
+      <form class="form" id="order-form" novalidate>
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="name-error" />
+          <p class="field-error" id="name-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <p class="hint" id="email-hint">Only used if we have a question about your order.</p>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="email-hint email-error" />
+          <p class="field-error" id="email-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="item">Item</label>
+          <select id="item" name="item" required aria-describedby="item-error">
+            <option value="">Choose an item</option>
+          </select>
+          <p class="field-error" id="item-error" hidden></p>
+        </div>
+
+        <div class="field">
+          <label for="quantity">Quantity</label>
+          <p class="hint" id="quantity-hint">From 1 to 12.</p>
+          <input id="quantity" name="quantity" type="number" inputmode="numeric" min="1" max="12" step="1" value="1" required aria-describedby="quantity-hint quantity-error" />
+          <p class="field-error" id="quantity-error" hidden></p>
+        </div>
+
+        <fieldset class="field-group">
+          <legend>Pickup</legend>
+          <p class="hint" id="pickup-hint">During <a href="/about.html#hours">opening hours</a>, at least 1 hour from now and up to 30 days ahead.</p>
+          <div class="field-row">
+            <div class="field">
+              <label for="date">Date</label>
+              <input id="date" name="date" type="date" required aria-describedby="pickup-hint date-error" />
+              <p class="field-error" id="date-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="time">Time</label>
+              <input id="time" name="time" type="time" step="900" required aria-describedby="pickup-hint time-error" />
+              <p class="field-error" id="time-error" hidden></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="notes">Notes <span class="optional">(optional)</span></label>
+          <p class="hint" id="notes-hint">Allergies, a message for a cake, anything we should know.</p>
+          <textarea id="notes" name="notes" rows="3" maxlength="500" aria-describedby="notes-hint notes-error"></textarea>
+          <p class="field-error" id="notes-error" hidden></p>
+        </div>
+
+        <!-- Spam limit (Week 5): a "honeypot". People never see this field, so they leave it empty.
+             Bots that fill in every field give themselves away. See docs/week-05-permissions.md. -->
+        <div class="honeypot" aria-hidden="true">
+          <label for="website">Leave this field empty</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <p class="privacy-note">We use your name and email only for this order. <a href="/privacy.html">Privacy</a></p>
+        <p class="form-message" id="form-message" role="alert" hidden></p>
+        <p><button class="button" type="submit">Place order</button></p>
+      </form>
+
+      <section class="confirmation" id="confirmation" tabindex="-1" aria-labelledby="confirmation-heading" hidden>
+        <h2 id="confirmation-heading">Thanks! Your order is in.</h2>
+        <dl id="confirmation-details"></dl>
+        <p>See you soon. If anything changes, email <a href="mailto:hello@crumb.example">hello@crumb.example</a>.</p>
+        <button class="button button-secondary" id="order-again" type="button">Place another order</button>
+      </section>
+    </main>
+
+    <!-- include src/partials/footer.html -->
+  </body>
+</html>

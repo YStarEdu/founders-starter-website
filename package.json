@@ -1,0 +1,23 @@
+{
+  "name": "crumb-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "YStar Founders website starter: Crumb, a small bakery that takes pickup orders.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vite build && node tests/policies.mjs && node tests/smoke.cjs"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.118.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.2.17",
+    "vite": "8.3.5"
+  }
+}

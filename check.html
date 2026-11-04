@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Permission check · Crumb</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/pages/check.js"></script>
+  </head>
+  <body>
+    <!-- include src/partials/header.html -->
+
+    <!-- Week 5: a page for you, not for customers, so it isn't in the menu.
+         Open it at /check.html. See docs/week-05-permissions.md. -->
+    <main id="main" class="container prose">
+      <h1>Permission check</h1>
+      <p class="lead">
+        This page uses your website's public key, so it can only do what any visitor, or any bot, could do.
+        It shows what your database allows.
+      </p>
+
+      <div id="check-local" hidden>
+        <p>You're in local mode, so there's no database to check yet. Connect Supabase in Week 4, then come back.</p>
+      </div>
+
+      <div id="check-ready" hidden>
+        <p>
+          It adds one test order named <strong>Permission check</strong>, then tries to read, change and delete
+          orders. Afterwards, delete the test orders in Supabase's Table Editor.
+        </p>
+        <p><button class="button" id="run-check" type="button">Run the check</button></p>
+        <ol class="check-results" id="check-results" aria-live="polite"></ol>
+        <p class="check-summary" id="check-summary" role="status" hidden></p>
+      </div>
+    </main>
+
+    <!-- include src/partials/footer.html -->
+  </body>
+</html>
